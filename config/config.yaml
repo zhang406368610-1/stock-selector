@@ -1,0 +1,84 @@
+# Stock Selector Configuration
+
+# 数据获取配置
+data:
+  # 数据源：yfinance, tencent, sina
+  source: yfinance
+  # 缓存目录
+  cache_dir: ./cache
+  # 是否使用缓存
+  use_cache: true
+
+# 技术面策略配置
+technical:
+  # 移动平均线周期
+  ma_short: 20
+  ma_long: 60
+  # RSI参数
+  rsi_period: 14
+  rsi_upper: 70
+  rsi_lower: 30
+  # MACD参数
+  macd_fast: 12
+  macd_slow: 26
+  macd_signal: 9
+  # 布林带参数
+  bb_period: 20
+  bb_std: 2
+
+# 基本面策略配置
+fundamental:
+  # PE估值范围
+  pe_min: 5
+  pe_max: 50
+  # PB估值范围
+  pb_min: 0.5
+  pb_max: 5
+  # 净利润增长率最小值 (%)
+  profit_growth_min: 10
+  # 资产负债率最大值
+  debt_ratio_max: 0.7
+
+# 动量策略配置
+momentum:
+  # 涨幅周期（天）
+  period: 20
+  # 最小涨幅 (%)
+  min_return: 5
+  # 成交量倍数
+  volume_multiplier: 1.5
+
+# 选股配置
+selection:
+  # 策略类型：technical, fundamental, momentum, combined
+  strategy: combined
+  # 股票池大小
+  stock_pool_size: 500
+  # 选股数量
+  select_count: 20
+  # 排序方式：score, return, volatility
+  sort_by: score
+
+# 回测配置
+backtest:
+  # 回测开始日期
+  start_date: "2022-01-01"
+  # 回测结束日期
+  end_date: "2024-12-31"
+  # 初始资金
+  initial_capital: 100000
+  # 交易手续费率
+  commission: 0.001
+  # 滑点
+  slippage: 0.0005
+
+# 输出配置
+output:
+  # 输出目录
+  output_dir: ./results
+  # 是否保存CSV
+  save_csv: true
+  # 是否生成报告
+  generate_report: true
+  # 是否生成图表
+  generate_charts: true
